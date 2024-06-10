@@ -3,7 +3,8 @@ A simple, customizable, embedable html clock.
 You can customize it via url paramaters.  
 *the clock's time is taken from your system time*  
 
-You can add this to your [Notion](https://www.notion.so/) / [obsidian](https://obsidian.md/) by putting this url as an embed / iframe: 
+You can add this to your [Notion](https://www.notion.so/) / [obsidian](https://obsidian.md/) by putting this url as an embed / iframe:  
+if you stream, you can add it as an OBS browser source.  
 ```
 https://crazykitty357.github.io/clock/
 ```
