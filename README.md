@@ -1,7 +1,7 @@
 # clock
 A simple, customizable, embedable html clock.  
-You can customize it via url paramaters. 
-*the clock's time is taken from your system time*
+You can customize it via url paramaters.  
+*the clock's time is taken from your system time*  
 
 You can add this to your [Notion](https://www.notion.so/) / [obsidian](https://obsidian.md/) by putting this url as an embed / iframe: 
 ```
