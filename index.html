@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System Clock</title>
+<style>
+#clock {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  color: #333;
+}
+</style>
+</head>
+<body>
+<div id="clock"></div>
+
+<script>
+function updateClock() {
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+
+    var format12h = false;
+    var showSeconds = true;
+    var clockColor = '#333'; // Default color
+    var clockFont = 'Arial, sans-serif'; // Default font
+    var clockSize = '18px'; // Default font size
+
+    // Check if query parameters are present in the URL
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('t') && urlParams.get('t') === '12h') {
+        format12h = true;
+    }
+    if (urlParams.has('seconds') && urlParams.get('seconds') === 'false') {
+        showSeconds = false;
+    }
+    if (urlParams.has('color')) {
+        var colorValue = urlParams.get('color');
+        clockColor = colorValue.startsWith('#') ? colorValue : '#' + colorValue;
+    }
+    if (urlParams.has('font')) {
+        clockFont = urlParams.get('font');
+        var link = document.createElement('link');
+        link.href = 'https://fonts.googleapis.com/css?family=' + clockFont.replace(/ /g, '+');
+        link.rel = 'stylesheet';
+        document.head.appendChild(link);
+    }
+    if (urlParams.has('size')) {
+        clockSize = urlParams.get('size');
+    }
+
+    var ampm = '';
+    if (format12h) {
+        hours = hours % 12 || 12; // Convert 24-hour format to 12-hour format
+        ampm = hours >= 12 ? 'AM' : 'PM';
+    } else {
+        hours = hours < 10 ? '0' + hours : hours;
+    }
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    var timeString = hours + ':' + minutes;
+    if (showSeconds) {
+        timeString += ':' + seconds;
+    }
+    if (format12h) {
+        timeString += ' ' + ampm;
+    }
+    var clockElement = document.getElementById('clock');
+    clockElement.innerText = timeString;
+    clockElement.style.color = clockColor;
+    clockElement.style.fontFamily = clockFont;
+    clockElement.style.fontSize = clockSize;
+}
+
+// Update the clock every second
+setInterval(updateClock, 1000);
+
+// Initial call to display the clock immediately
+updateClock();
+</script>
+</body>
+</html>
