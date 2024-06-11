@@ -13,7 +13,7 @@ https://crazykitty357.github.io/clock/
 
 ```seconds=false``` - hides the seconds, anything else will show the seconds | [example](https://crazykitty357.github.io/clock/?seconds=false)
 
-```font=``` - can be set to a custom font based on [google fonts](https://fonts.google.com) if the font doesn't work try replacing the space with a plus in the font family ```Bebas Neue -> Bebas+Neue```| [example](https://crazykitty357.github.io/clock/?font=Tiny5)
+```font=``` - can be set to a custom font based on [google fonts](https://fonts.google.com) | [example](https://crazykitty357.github.io/clock/?font=Tiny5)
 
 ```color=``` - can be set to any hexcode you want, **DON'T ADD THE # IN FRONT OF THE HEXCODE** | [example](https://crazykitty357.github.io/clock/?color=ad540f)
 
