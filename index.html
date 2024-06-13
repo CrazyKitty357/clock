@@ -56,8 +56,8 @@ function updateClock() {
 
     var ampm = '';
     if (format12h) {
+        ampm = hours >= 12 ? 'PM' : 'AM'; // Set ampm before converting hours
         hours = hours % 12 || 12; // Convert 24-hour format to 12-hour format
-        ampm = hours >= 12 ? 'PM' : 'AM';
     } else {
         hours = hours < 10 ? '0' + hours : hours;
     }
