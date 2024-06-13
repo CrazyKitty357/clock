@@ -26,6 +26,7 @@ function updateClock() {
     var seconds = now.getSeconds();
 
     var format12h = false;
+    var swapAMPM = false;
     var showSeconds = true;
     var clockColor = '#333'; // Default color
     var clockFont = 'Arial, sans-serif'; // Default font
@@ -33,8 +34,13 @@ function updateClock() {
 
     // Check if query parameters are present in the URL
     var urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('t') && urlParams.get('t') === '12h') {
-        format12h = true;
+    if (urlParams.has('t')) {
+        if (urlParams.get('t') === '12h') {
+            format12h = true;
+        } else if (urlParams.get('t') === '12hSwap') {
+            format12h = true;
+            swapAMPM = true;
+        }
     }
     if (urlParams.has('seconds') && urlParams.get('seconds') === 'false') {
         showSeconds = false;
@@ -58,6 +64,9 @@ function updateClock() {
     if (format12h) {
         ampm = hours >= 12 ? 'PM' : 'AM'; // Set ampm before converting hours
         hours = hours % 12 || 12; // Convert 24-hour format to 12-hour format
+        if (swapAMPM) {
+            ampm = ampm === 'AM' ? 'PM' : 'AM'; // Swap AM and PM
+        }
     } else {
         hours = hours < 10 ? '0' + hours : hours;
     }
