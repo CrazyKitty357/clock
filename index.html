@@ -56,6 +56,9 @@ function updateClock() {
         link.rel = 'stylesheet';
         document.head.appendChild(link);
     }
+    if (urlParams.has('sysfont')) {
+        clockFont = urlParams.get('sysfont');
+    }
     if (urlParams.has('size')) {
         clockSize = urlParams.get('size');
     }

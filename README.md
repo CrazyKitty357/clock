@@ -19,4 +19,7 @@ https://crazykitty357.github.io/clock/
 
 ```size=NUMBERpx``` - can change the size of the clock | [example](https://crazykitty357.github.io/clock/?size=50px)
 
+```sysfont=``` - is similar to font except instead of it using google fonts it uses whatever font is installed on your system | [windows example](https://crazykitty357.github.io/clock?sysfont=Comic%20Sans%20MS) [linux example](https://crazykitty357.github.io/clock?sysfont=Noto%20Sans)  
+**NOTE**: if combined with ```font=``` sysfont will have priority. 
+
 also all of these can stack | [example](https://crazykitty357.github.io/clock/?t=12h&seconds=false&font=Tiny5&color=ad540f&size=50px)
